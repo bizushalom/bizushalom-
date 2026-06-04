@@ -291,6 +291,7 @@ img {
     width: 100%;
     max-width: 380px;
     aspect-ratio: 1 / 1; /* Mantiene la proporción circular perfecta en todas las pantallas */
+    min-height: 380px;
     background: linear-gradient(135deg, var(--beige), var(--rosado));
     border-radius: 50%;
     animation: float 6s infinite ease-in-out;
@@ -300,17 +301,54 @@ img {
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    position: relative; /* Necesario para el carrusel absolute */
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+    .circle-decoration {
+        height: 0;
+        padding-top: 100%;
+    }
 }
 
 .hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    opacity: 0; /* Ocultas por defecto */
+    transform: scale(1);
+    transition: transform 0.45s ease, opacity 0.45s ease;
+    animation: fadeSlideshow 15s infinite both; /* Compatibilidad con navegadores */
+    animation-timing-function: ease-in-out;
+}
+
+/* AÑADIDO: Retrasos matemáticos para que pasen en orden de 3 en 3 segundos */
+.slide-1 { animation-delay: 0s; }
+.slide-2 { animation-delay: 3s; }
+.slide-3 { animation-delay: 6s; }
+.slide-4 { animation-delay: 9s; }
+.slide-5 { animation-delay: 12s; }
+
+/* AÑADIDO: Mejora de compatibilidad con navegadores móviles antiguos */
+@media (prefers-reduced-motion: reduce) {
+    .hero-image, .circle-decoration, .btn, .category-card, .category-card .circle-wrapper::before {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.2s !important;
+    }
+}
+
+.circle-decoration:hover {
+    transform: scale(1.02);
+    box-shadow: 0 28px 55px rgba(201, 146, 176, 0.35);
 }
 
 .circle-decoration:hover .hero-image {
-    transform: scale(1.05); 
+    transform: scale(1.08); 
 }
 
 .glass-card {
@@ -535,6 +573,15 @@ img {
 @keyframes fadeInRight {
     from { opacity: 0; transform: translateX(40px); }
     to { opacity: 1; transform: translateX(0); }
+}
+
+/* AÑADIDO: Keyframes precisos para el carrusel de 5 imágenes */
+@keyframes fadeSlideshow {
+    0%   { opacity: 0; }
+    5%   { opacity: 1; }   /* Fade In */
+    20%  { opacity: 1; }   /* Mantiene visible */
+    25%  { opacity: 0; }   /* Fade Out cruzándose con la siguiente */
+    100% { opacity: 0; }
 }
 
 /* =========================================
