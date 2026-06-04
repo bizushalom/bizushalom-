@@ -1,0 +1,615 @@
+/* =========================================
+   VARIABLES DE COLOR Y ESTILOS GLOBALES
+========================================= */
+:root {
+    --blanco: #ffffff;
+    --rosado: #c992b0;
+    --verde: #ced595;
+    --beige: #d7bba6;
+    
+    --font-titulos: 'Playfair Display', serif;
+    --font-textos: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-textos);
+    background-color: var(--blanco);
+    color: #2b2b2b;
+    overflow-x: hidden; /* Evita scrolls horizontales si algo sobresale */
+    position: relative;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.page-container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: 0 6%;
+}
+
+@media (max-width: 768px) {
+    .page-container {
+        padding: 0 5%;
+    }
+}
+
+/* =========================================
+   FONDOS Y FORMAS DECORATIVAS ORGÁNICAS
+========================================= */
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -2;
+    filter: blur(80px);
+    opacity: 0.85; 
+    animation: floatBg 15s infinite alternate ease-in-out;
+}
+
+.shape1 {
+    width: 500px;
+    height: 500px;
+    background-color: var(--rosado);
+    top: -12%;
+    right: -5%;
+}
+
+.shape2 {
+    width: 420px;
+    height: 420px;
+    background-color: var(--verde);
+    bottom: 5%;
+    left: -10%;
+    animation-delay: 2.5s;
+}
+
+.shape3 {
+    width: 350px;
+    height: 350px;
+    background-color: var(--beige);
+    top: 35%;
+    right: 10%;
+    animation-delay: 5s;
+    animation-direction: alternate-reverse;
+}
+
+/* =========================================
+   ESTILOS DE JOYAS MINIMALISTAS
+========================================= */
+.jewel-shape {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    animation: floatJewel 8s infinite ease-in-out;
+}
+
+.jewel-shape svg {
+    width: 100%;
+    height: 100%;
+}
+
+.jewel-diamond {
+    top: 22%;
+    left: 6%;
+    width: 90px;
+    height: 90px;
+    opacity: 0.25;
+    animation-duration: 7s;
+}
+
+.jewel-necklace {
+    top: 15%;
+    right: 10%;
+    width: 80px;
+    height: 100px;
+    opacity: 0.30;
+    animation-duration: 9s;
+    animation-delay: 1.5s;
+}
+
+.jewel-earring {
+    top: 68%;
+    left: 8%;
+    width: 85px;
+    height: 85px;
+    opacity: 0.28;
+    animation-duration: 8.5s;
+    animation-delay: 0.8s;
+}
+
+.jewel-sparkle {
+    top: 52%;
+    right: 9%;
+    width: 75px;
+    height: 75px;
+    opacity: 0.22;
+    animation-duration: 6s;
+    animation-delay: 2.5s;
+}
+
+/* =========================================
+   ENCABEZADO Y LOGO DE IMAGEN
+========================================= */
+.header {
+    padding: 25px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-img {
+    height: 160px; /* Tamaño principal en escritorio */
+    width: auto;
+    max-width: 100%;
+    animation: fadeInDown 1s ease forwards;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.06)); 
+}
+
+.logo-img:hover {
+    transform: scale(1.04); 
+}
+
+/* =========================================
+   SECCIÓN PRINCIPAL (HERO)
+========================================= */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 80px 0; 
+    min-height: 70vh;
+    gap: 50px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    animation: fadeInLeft 1.2s ease forwards;
+    position: relative;
+    z-index: 5;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: var(--beige);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-titulos);
+    font-size: 4.2rem;
+    line-height: 1.1;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* BOTONES */
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Alinea los íconos al centro en cualquier tamaño */
+    gap: 10px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.btn-primary {
+    background-color: var(--rosado);
+    color: var(--blanco);
+    border: 2px solid var(--rosado);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--rosado);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(201, 146, 176, 0.35);
+}
+
+.btn-whatsapp {
+    background-color: var(--verde);
+    color: var(--blanco);
+}
+
+.btn-whatsapp:hover {
+    background-color: #b7be82;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(206, 213, 149, 0.45);
+}
+
+.btn-instagram {
+    background-color: var(--beige);
+    color: var(--blanco);
+}
+
+.btn-instagram:hover {
+    background-color: #c4a793;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(215, 187, 166, 0.45);
+}
+
+/* IMAGEN DECORATIVA HERO */
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInRight 1.2s ease forwards;
+    z-index: 5;
+    width: 100%;
+    min-width: 280px;
+}
+
+.circle-decoration {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1 / 1; /* Mantiene la proporción circular perfecta en todas las pantallas */
+    background: linear-gradient(135deg, var(--beige), var(--rosado));
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    box-shadow: 0 20px 40px rgba(201, 146, 176, 0.25);
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.circle-decoration:hover .hero-image {
+    transform: scale(1.05); 
+}
+
+.glass-card {
+    position: absolute;
+    bottom: 10px;
+    right: 10%;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 20px 25px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+    animation: float 6s infinite ease-in-out;
+    animation-delay: 1.5s;
+    width: max-content;
+    max-width: 90%;
+}
+
+.glass-card h3 {
+    font-family: var(--font-titulos);
+    color: var(--rosado);
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.glass-card p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* =========================================
+   SECCIÓN: PRENDAS EN TENDENCIA
+========================================= */
+.categories-section {
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+}
+
+.section-header {
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--rosado);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.section-title {
+    font-family: var(--font-titulos);
+    font-size: 2.8rem;
+    color: #1a1a1a;
+}
+
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 35px;
+    justify-items: center;
+}
+
+.category-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+}
+
+.circle-wrapper {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin-bottom: 25px;
+}
+
+.category-circle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: var(--blanco);
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 2;
+}
+
+.item-collares {
+    background: linear-gradient(135deg, var(--rosado), var(--beige));
+    border-radius: 60% 40% 55% 45% / 50% 45% 55% 50%;
+}
+
+.item-aretes {
+    background: linear-gradient(135deg, var(--verde), var(--rosado));
+    border-radius: 45% 55% 40% 60% / 45% 50% 50% 55%;
+}
+
+.item-pulseras {
+    background: linear-gradient(135deg, var(--beige), var(--verde));
+    border-radius: 50% 50% 45% 55% / 55% 40% 60% 45%;
+}
+
+.category-circle i {
+    transition: transform 0.5s ease;
+}
+
+.circle-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    border: 2px dashed rgba(215, 187, 166, 0.5);
+    border-radius: 50%;
+    transition: all 0.6s ease;
+    animation: rotateRing 25s linear infinite;
+    z-index: 1;
+}
+
+.category-card h3 {
+    font-family: var(--font-titulos);
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.category-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* EFECTOS HOVER */
+.category-card:hover .category-circle {
+    transform: scale(1.06) translateY(-5px);
+    border-radius: 50%; 
+    box-shadow: 0 20px 40px rgba(201, 146, 176, 0.25);
+}
+
+.category-card:hover .category-circle i {
+    transform: scale(1.15) rotate(10deg);
+}
+
+.category-card:hover .circle-wrapper::before {
+    transform: scale(1.03);
+    border-color: var(--rosado);
+    border-style: solid;
+}
+
+.category-card:hover h3 {
+    color: var(--rosado);
+}
+
+/* =========================================
+   PIE DE PÁGINA (FOOTER)
+========================================= */
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 5;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #888;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   ANIMACIONES KEYFRAMES
+========================================= */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes floatBg {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 25px) scale(1.08); }
+}
+
+@keyframes floatJewel {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(6deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes rotateRing {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================
+   DISEÑO RESPONSIVO (COMPATIBILIDAD TOTAL)
+========================================= */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    
+    .hero-content h1 { 
+        font-size: 3.2rem; 
+    }
+    
+    .cta-buttons { 
+        justify-content: center; 
+    }
+    
+    .hero-image-container {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+    
+    .glass-card {
+        position: static;
+        transform: none;
+        right: auto;
+        bottom: auto;
+        margin: 24px auto 0;
+    }
+    
+    .categories-container { 
+        gap: 40px; 
+    }
+    
+    .jewel-shape {
+        opacity: 0.10;
+        transform: scale(0.7);
+    }
+}
+
+/* Celulares y pantallas pequeñas */
+@media (max-width: 480px) {
+    .logo-img { 
+        height: 120px; /* Excelente proporción para móvil */
+    } 
+    
+    .hero-content h1 { 
+        font-size: 2.4rem; 
+    }
+    
+    /* Configuración especial para que los botones sean cómodos de tocar */
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn { 
+        width: 100%; 
+    }
+    
+    .circle-decoration { 
+        max-width: 280px; /* Evita que el círculo se corte en celulares muy angostos */
+    }
+    
+    .hero {
+        padding: 30px 0 50px 0;
+    }
+    
+    .section-title { 
+        font-size: 2.2rem; 
+    }
+}
