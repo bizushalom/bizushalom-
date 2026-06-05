@@ -69,9 +69,24 @@
          Encabezado
          ============================================== -->
     <header class="header">
-        <a href="#">
+        <a href="#" class="logo-link">
+            <span class="logo-bizu">Bizu</span>
             <img src="LOGO-NEGRO.png" alt="Logo Bizushalom" class="logo-img">
+            <span class="logo-ghost">shalom</span>
         </a>
+        <div class="menu-wrapper">
+            <button class="menu-button" aria-expanded="false" aria-controls="main-menu" type="button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="sr-only">Abrir menú</span>
+            </button>
+            <nav id="main-menu" class="menu-dropdown" aria-hidden="true">
+                <a href="conoce.html">Conoce más sobre nosotros</a>
+                <a href="preguntas.html">Preguntas Frecuentes</a>
+                <a href="referencias.html">Referencias</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Sección Principal (Hero) -->
@@ -173,5 +188,29 @@
         <p>&copy; 2026 bizushalom.ca. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.menu-button');
+            const menuDropdown = document.querySelector('.menu-dropdown');
+            const menuWrapper = document.querySelector('.menu-wrapper');
+
+            if (!menuButton || !menuDropdown) return;
+
+            menuButton.addEventListener('click', function(event) {
+                event.stopPropagation();
+                const isOpen = menuDropdown.classList.toggle('open');
+                menuButton.setAttribute('aria-expanded', String(isOpen));
+                menuDropdown.setAttribute('aria-hidden', String(!isOpen));
+            });
+
+            document.addEventListener('click', function(event) {
+                if (!menuWrapper.contains(event.target)) {
+                    menuDropdown.classList.remove('open');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                    menuDropdown.setAttribute('aria-hidden', 'true');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
