@@ -1,4 +1,4 @@
-/* =========================================
+﻿/* =========================================
    VARIABLES DE COLOR Y ESTILOS GLOBALES
 ========================================= */
 :root {
@@ -51,7 +51,7 @@ img {
 }
 
 /* =========================================
-   FONDOS Y FORMAS DECORATIVAS ORGÁNICAS
+   FONDOS Y FORMAS DECORATIVAS ORGï¿½NICAS
 ========================================= */
 .bg-shape {
     position: absolute;
@@ -156,7 +156,7 @@ img {
 }
 
 .logo-img {
-    height: 160px; /* Tamaño principal en escritorio */
+    height: 160px; /* Tamaï¿½o principal en escritorio */
     width: auto;
     max-width: 100%;
     animation: fadeInDown 1s ease forwards;
@@ -169,7 +169,7 @@ img {
 }
 
 /* =========================================
-   SECCIÓN PRINCIPAL (HERO)
+   SECCIï¿½N PRINCIPAL (HERO)
 ========================================= */
 .hero {
     display: flex;
@@ -233,7 +233,7 @@ img {
     font-size: 0.95rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* Alinea los íconos al centro en cualquier tamaño */
+    justify-content: center; /* Alinea los ï¿½conos al centro en cualquier tamaï¿½o */
     gap: 10px;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
@@ -290,8 +290,7 @@ img {
 .circle-decoration {
     width: 100%;
     max-width: 380px;
-    aspect-ratio: 1 / 1; /* Mantiene la proporción circular perfecta en todas las pantallas */
-    min-height: 380px;
+    aspect-ratio: 1 / 1; /* Mantiene la proporciï¿½n circular perfecta en todas las pantallas */
     background: linear-gradient(135deg, var(--beige), var(--rosado));
     border-radius: 50%;
     animation: float 6s infinite ease-in-out;
@@ -300,18 +299,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    position: relative; /* Necesario para el carrusel absolute */
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    margin: 0 auto 90px;
+    position: relative; /* Aï¿½ADIDO: Necesario para el carrusel absolute */
 }
 
-@supports not (aspect-ratio: 1 / 1) {
-    .circle-decoration {
-        height: 0;
-        padding-top: 100%;
-    }
-}
-
+/* Aï¿½ADIDO: Configuraciï¿½n de la imagen para el Slider */
 .hero-image {
     position: absolute;
     top: 0;
@@ -320,42 +312,26 @@ img {
     height: 100%;
     object-fit: cover;
     opacity: 0; /* Ocultas por defecto */
-    transform: scale(1);
-    transition: transform 0.45s ease, opacity 0.45s ease;
-    animation: fadeSlideshow 15s infinite both; /* Compatibilidad con navegadores */
-    animation-timing-function: ease-in-out;
+    transition: transform 0.5s ease;
+    animation: fadeSlideshow 15s infinite; /* 5 fotos x 3 seg = 15 seg total */
 }
 
-/* AÑADIDO: Retrasos matemáticos para que pasen en orden de 3 en 3 segundos */
+/* Aï¿½ADIDO: Retrasos matemï¿½ticos para que pasen en orden de 3 en 3 segundos */
 .slide-1 { animation-delay: 0s; }
 .slide-2 { animation-delay: 3s; }
 .slide-3 { animation-delay: 6s; }
 .slide-4 { animation-delay: 9s; }
 .slide-5 { animation-delay: 12s; }
 
-/* AÑADIDO: Mejora de compatibilidad con navegadores móviles antiguos */
-@media (prefers-reduced-motion: reduce) {
-    .hero-image, .circle-decoration, .btn, .category-card, .category-card .circle-wrapper::before {
-        animation-duration: 1ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.2s !important;
-    }
-}
-
-.circle-decoration:hover {
-    transform: scale(1.02);
-    box-shadow: 0 28px 55px rgba(201, 146, 176, 0.35);
-}
-
 .circle-decoration:hover .hero-image {
-    transform: scale(1.08); 
+    transform: scale(1.05); 
 }
 
 .glass-card {
     position: absolute;
     bottom: 10px;
     right: 10%;
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 20px 25px;
@@ -366,6 +342,61 @@ img {
     animation-delay: 1.5s;
     width: max-content;
     max-width: 90%;
+}
+
+.ceo-wrapper {
+    position: absolute;
+    bottom: -240px;
+    left: -14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    width: min(100%, 360px);
+    z-index: 10;
+    transition: bottom 0.3s ease, left 0.3s ease;
+}
+
+.ceo-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-radius: 20px;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.ceo-photo {
+    width: 150px;
+    height: 250px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid rgba(201, 146, 176, 0.85);
+}
+
+.ceo-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ceo-caption {
+    max-width: 160px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #4a4a4a;
+    text-align: left;
+    margin: 0;
+}
+
+.text-rose {
+    color: var(--rosado);
+}
+
+.hero-image-container {
+    margin-bottom: 50px;
 }
 
 .glass-card h3 {
@@ -381,11 +412,11 @@ img {
 }
 
 /* =========================================
-   SECCIÓN: PRENDAS EN TENDENCIA
+   SECCIï¿½N: PRENDAS EN TENDENCIA
 ========================================= */
 .categories-section {
-    padding: 80px 0;
-    text-align: center;
+    padding: 200px 0;
+    text-align: left;
     position: relative;
     z-index: 5;
 }
@@ -518,10 +549,10 @@ img {
 }
 
 /* =========================================
-   PIE DE PÁGINA (FOOTER)
+   PIE DE Pï¿½GINA (FOOTER)
 ========================================= */
 .footer {
-    text-align: center;
+    text-align: left;
     padding: 30px 0;
     margin-top: 20px;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
@@ -575,24 +606,24 @@ img {
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* AÑADIDO: Keyframes precisos para el carrusel de 5 imágenes */
+/* Aï¿½ADIDO: Keyframes precisos para el carrusel de 5 imï¿½genes */
 @keyframes fadeSlideshow {
     0%   { opacity: 0; }
     5%   { opacity: 1; }   /* Fade In */
     20%  { opacity: 1; }   /* Mantiene visible */
-    25%  { opacity: 0; }   /* Fade Out cruzándose con la siguiente */
+    25%  { opacity: 0; }   /* Fade Out cruzï¿½ndose con la siguiente */
     100% { opacity: 0; }
 }
 
 /* =========================================
-   DISEÑO RESPONSIVO (COMPATIBILIDAD TOTAL)
+   DISEï¿½O RESPONSIVO (COMPATIBILIDAD TOTAL)
 ========================================= */
 
 /* Tablets y pantallas medianas */
 @media (max-width: 992px) {
     .hero {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
         padding-bottom: 50px;
     }
     
@@ -618,45 +649,94 @@ img {
         margin: 24px auto 0;
     }
     
-    .categories-container { 
-        gap: 40px; 
-    }
-    
-    .jewel-shape {
-        opacity: 0.10;
-        transform: scale(0.7);
+    .ceo-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        border-radius: 20px;
+        padding: 0;
+        border: none;
+        box-shadow: none;
     }
 }
 
 /* Celulares y pantallas pequeñas */
 @media (max-width: 480px) {
-    .logo-img { 
-        height: 120px; /* Excelente proporción para móvil */
-    } 
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 40px;
+    }
     
+    .hero-content {
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .hero-content h1 { 
         font-size: 2.4rem; 
+    }
+    
+    .hero-content p {
+        margin: 0 auto 24px;
+        max-width: 100%;
     }
     
     /* Configuración especial para que los botones sean cómodos de tocar */
     .cta-buttons {
         flex-direction: column;
         width: 100%;
+        align-items: center;
     }
     
     .btn { 
         width: 100%; 
+        max-width: 320px;
     }
     
-    .circle-decoration { 
-        max-width: 280px; /* Evita que el círculo se corte en celulares muy angostos */
+    .hero-image-container {
+        margin: 0 auto 80px;
     }
-    
-    .hero {
-        padding: 30px 0 50px 0;
+
+    .ceo-wrapper {
+        left: -14px;
+        transform: none;
+        bottom: -240px;
+        width: min(100%, 340px);
+        justify-content: flex-start;
     }
-    
-    .section-title { 
-        font-size: 2.2rem; 
+
+    .ceo-caption {
+        margin: 0;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
     }
+
+    .categories-section {
+        text-align: center;
+    }
+
+    .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .categories-container {
+        justify-items: center;
+    }
+
+    .category-card {
+        margin: 0 auto;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .logo-img { 
+        height: 120px; /* Excelente proporción para móvil */
+    } 
 }
