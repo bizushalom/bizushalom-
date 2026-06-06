@@ -63,7 +63,7 @@ img {
 }
 
 /* =========================================
-   FONDOS Y FORMAS DECORATIVAS ORGï¿½NICAS
+   FONDOS Y FORMAS DECORATIVAS ORGÁNICAS
 ========================================= */
 .bg-shape {
     position: absolute;
@@ -366,7 +366,7 @@ img {
 }
 
 /* =========================================
-   SECCIï¿½N PRINCIPAL (HERO)
+   SECCIÓN PRINCIPAL (HERO)
 ========================================= */
 .hero {
     display: flex;
@@ -430,7 +430,7 @@ img {
     font-size: 0.95rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* Alinea los ï¿½conos al centro en cualquier tamaï¿½o */
+    justify-content: center; /* Alinea los íconos al centro en cualquier tamaño */
     gap: 10px;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     box-shadow: 0 4px 15px rgba(0,0,0,0.04);
@@ -487,7 +487,7 @@ img {
 .circle-decoration {
     width: 100%;
     max-width: 380px;
-    aspect-ratio: 1 / 1; /* Mantiene la proporciï¿½n circular perfecta en todas las pantallas */
+    aspect-ratio: 1 / 1; /* Mantiene la proporción circular perfecta en todas las pantallas */
     background: linear-gradient(135deg, var(--beige), var(--rosado));
     border-radius: 50%;
     animation: float 6s infinite ease-in-out;
@@ -497,10 +497,10 @@ img {
     justify-content: center;
     align-items: center;
     margin: 0 auto 90px;
-    position: relative; /* Aï¿½ADIDO: Necesario para el carrusel absolute */
+    position: relative; /* AÑADIDO: Necesario para el carrusel absolute */
 }
 
-/* Aï¿½ADIDO: Configuraciï¿½n de la imagen para el Slider */
+/* AÑADIDO: Configuración de la imagen para el Slider */
 .hero-image {
     position: absolute;
     top: 0;
@@ -513,7 +513,7 @@ img {
     animation: fadeSlideshow 15s infinite; /* 5 fotos x 3 seg = 15 seg total */
 }
 
-/* Aï¿½ADIDO: Retrasos matemï¿½ticos para que pasen en orden de 3 en 3 segundos */
+/* AÑADIDO: Retrasos matemáticos para que pasen en orden de 3 en 3 segundos */
 .slide-1 { animation-delay: 0s; }
 .slide-2 { animation-delay: 3s; }
 .slide-3 { animation-delay: 6s; }
@@ -609,7 +609,7 @@ img {
 }
 
 /* =========================================
-   SECCIï¿½N: PRENDAS EN TENDENCIA
+   SECCIÓN: PRENDAS EN TENDENCIA
 ========================================= */
 .categories-section {
     padding: 200px 0;
@@ -865,7 +865,7 @@ img {
 }
 
 /* =========================================
-   PIE DE Pï¿½GINA (FOOTER)
+   PIE DE PÁGINA (FOOTER)
 ========================================= */
 .footer {
     text-align: left;
@@ -922,17 +922,17 @@ img {
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* Aï¿½ADIDO: Keyframes precisos para el carrusel de 5 imï¿½genes */
+/* AÑADIDO: Keyframes precisos para el carrusel de 5 imágenes */
 @keyframes fadeSlideshow {
     0%   { opacity: 0; }
     5%   { opacity: 1; }   /* Fade In */
     20%  { opacity: 1; }   /* Mantiene visible */
-    25%  { opacity: 0; }   /* Fade Out cruzï¿½ndose con la siguiente */
+    25%  { opacity: 0; }   /* Fade Out cruzándose con la siguiente */
     100% { opacity: 0; }
 }
 
 /* =========================================
-   DISEï¿½O RESPONSIVO (COMPATIBILIDAD TOTAL)
+   DISEÑO RESPONSIVO (COMPATIBILIDAD TOTAL)
 ========================================= */
 
 /* Tablets y pantallas medianas */
